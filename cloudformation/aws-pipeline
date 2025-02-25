@@ -54,6 +54,7 @@ Resources:
       Name: CodeBuildProject
       Source:
         Type: CODEPIPELINE
+        BuildSpec: buildspec.yml
       Environment:
         ComputeType: BUILD_GENERAL1_SMALL
         Image: aws/codebuild/standard:5.0
