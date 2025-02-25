@@ -12,14 +12,14 @@ phases:
     commands:
       - echo "Starting build process..."
       - echo "Validating CloudFormation template..."
-      - aws cloudformation validate-template --template-body file://codepipeline.yml
+      - aws cloudformation validate-template --template-body file://cloudformation/aws-pipeline.yml
 
   post_build:
     commands:
       - echo "Deploying CloudFormation stack..."
       - aws cloudformation deploy \
           --stack-name my-data-pipeline-stack \
-          --template-file codepipeline.yml \
+          --template-file cloudformation/aws-pipeline.yml \
           --capabilities CAPABILITY_NAMED_IAM \
           --no-fail-on-empty-changeset
       - echo "Build and deployment completed!"
